@@ -1,0 +1,18 @@
+services:
+  mysql-forum:
+    container_name: mysql-forum
+    image: mysql:latest
+    environment:
+      - MYSQL_DATABASE=forum
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=user
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_TCP_PORT=3306
+    ports:
+      - "3312:3306"
+    networks:
+      - forum-network
+
+networks:
+  forum-network:
+    driver: bridge
