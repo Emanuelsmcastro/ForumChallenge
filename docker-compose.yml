@@ -13,6 +13,27 @@ services:
     networks:
       - forum-network
 
+  forum-challenge:
+    container_name: forum-challenge
+    build: forumchallenge/
+    depends_on:
+      - mysql-forum
+    ports:
+      - "9001:9001"
+    networks:
+      - forum-network
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 30s
+        max_attempts: 3
+    environment:
+      - DB_HOST=mysql-forum
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=forum
+
 networks:
   forum-network:
     driver: bridge
