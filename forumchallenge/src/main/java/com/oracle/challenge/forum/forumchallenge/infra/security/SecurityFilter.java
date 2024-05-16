@@ -33,7 +33,6 @@ public class SecurityFilter extends OncePerRequestFilter{
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
-        System.out.println("Test");
         try{
             Optional<User> user = userRepository.findByUsername(tokenService.getSubject(getToken(request)));
             if(user.isPresent()){
@@ -43,7 +42,6 @@ public class SecurityFilter extends OncePerRequestFilter{
             }
         } catch (TokenNotFoundException | JWTVerificationException exception){
         }
-        System.out.println("Test");
         filterChain.doFilter(request, response);
     }
 
