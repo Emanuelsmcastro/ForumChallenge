@@ -1,6 +1,9 @@
 server:
     port: 9001
 
+    error:
+        include-stacktrace: never
+
 spring:
     application:
         name: forumchallenge
@@ -12,6 +15,6 @@ spring:
         password: ${DB_PASSWORD:root}
     jpa:
         hibernate:
-            ddl-auto: none
+            ddl-auto: create
         database-platform: org.hibernate.dialect.MySQLDialect
         show-sql: false
