@@ -19,7 +19,7 @@ Para as demais consultas a API estarei disponibilizando a coleção do Postman q
 
 ## Como Utilizar
 
-> Primeira build o projeto com o seguinte comando:
+> Primeiro build o projeto com o seguinte comando:
 ``` bash 
 mvn clean install -DskipTests 
 ```
